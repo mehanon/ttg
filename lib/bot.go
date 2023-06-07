@@ -69,7 +69,8 @@ func NewTtTg(cfg TtTgConfig, preferences ...tele.Settings) (*TtTg, error) {
 		for _, link := range links {
 			ttFileInfo, err := DownloadVideo(string(link), cfg.DataDirPath)
 			if err != nil {
-				return err
+				progressMessage, _ = bot.Edit(progressMessage, "failed, sorry :c")
+                return err
 			}
 			progressMessage, err = bot.Edit(progressMessage, "downloaded, converting...")
 			if err != nil {
