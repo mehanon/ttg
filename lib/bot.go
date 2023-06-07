@@ -65,12 +65,11 @@ func NewTtTg(cfg TtTgConfig, preferences ...tele.Settings) (*TtTg, error) {
 				links = append(links, []byte(fmt.Sprintf("https:/tiktok.com/@share/video/%s", id)))
 			}
 		}
-		println(len(links))
 		for _, link := range links {
 			ttFileInfo, err := DownloadVideo(string(link), cfg.DataDirPath)
 			if err != nil {
-				progressMessage, _ = bot.Edit(progressMessage, "failed, sorry :c")
-                return err
+				progressMessage, _ = bot.Edit(progressMessage, "video isn't found or not supported, sorry :c")
+				return nil
 			}
 			progressMessage, err = bot.Edit(progressMessage, "downloaded, converting...")
 			if err != nil {
