@@ -5,7 +5,7 @@ import (
 	"flag"
 	"log"
 	"os"
-	"ttg2/lib"
+	"github.com/mehanon/ttg/lib"
 )
 
 const DefaultConfigPath = "./cfg.json"
