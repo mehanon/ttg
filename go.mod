@@ -1,4 +1,4 @@
-module ttg2
+module github.com/tikmeh/ttg
 
 go 1.20
 
